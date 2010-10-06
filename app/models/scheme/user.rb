@@ -43,10 +43,10 @@ class User
 
   def send_login_link
     update_hash
-    Pony.mail( :to => email, :from => "noreply@naumen.ru", 
-               :via => :smtp, :smtp => { :host => "mx1.naumen.ru" },
+    Pony.mail( :to => email, :from => "kaineer@gmail.com", 
+               :via => :smtp, :smtp => { :host => "smtp.gmail.com" },
                :subject => "[rendered.hello] Login link",
-               :body => "Login by: http://localhost:4567/hello/#{self.user_hash}" )
+               :body => "http://gentle-winter-71.heroku.com/hello/#{self.user_hash}" )
   end
 
   def restore_session
