@@ -49,7 +49,7 @@ class User
            :from => "kaineer@mail.ru", 
            :via => :smtp, 
            :smtp => { 
-             :port = 25,
+             :port => 25,
              :host => "smtp.mail.ru" 
              :user => "kaineer",
              :password => "failedsecret",
