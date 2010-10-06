@@ -5,3 +5,4 @@ haml --version 3.0.4
 i18n
 dm-core
 dm-migrations
+dm-postgres-adapter
