@@ -2,3 +2,4 @@ rack-flash --version 0.1.1 --source gemcutter.org
 pony --version 1.0.1
 sinatra --version 1.0.0
 haml --version 3.0.4
+i18n
