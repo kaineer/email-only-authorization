@@ -50,7 +50,7 @@ class User
            :via => :smtp, 
            :smtp => { 
              :port => 25,
-             :host => "smtp.mail.ru" 
+             :host => "smtp.mail.ru",
              :user => "kaineer",
              :password => "failedsecret",
              :auth => :plain,
