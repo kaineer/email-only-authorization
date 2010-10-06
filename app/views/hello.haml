@@ -1,0 +1,9 @@
+.span-24
+  %a{:href => "/show"} Show
+  %form{:action => "/update", :method => "POST"}
+    %textarea.wide-edit{:name => "content", :rows => 40}=@content.gsub(/</, "&lt;").gsub(/>/, "&gt;")
+    %br
+    %input{:type => "submit", :value => "Ok"}
+  %span= "Created at #{@r.created_at.strftime('%Y.%m.%d %H:%M') rescue '?'}"
+  %br
+  %span= "Last access #{@r.last_access.strftime('%Y.%m.%d %H:%M' ) rescue '?'}"

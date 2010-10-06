@@ -1,0 +1,44 @@
+* registration workflow
+** /
+*** redirect /hello if session_id empty
+*** redirect /edit otherwise
+** /hello/:user_hash
+*** if params[ id ] is empty
+**** create user_session model object
+     us = UserSession.detect
+**** assign guest user_session.hash from Time.now 
+     [in .detect]
+**** post [email] -> /register
+*** else
+**** lookup for user.id in user model by user_hash
+     user = User.find( :hash => user_hash )
+**** user_session.user_id = user.id
+     us = UserSession.detect
+     us.update( :user_id => user.id )
+**** store user_session.id in session
+**** ? redirect /edit
+*** link -> /edit [as anonymous]
+** /register 
+*** create user with user_hash from [email, Time.now], provided email, and timestamps
+    user = User.detect( email )
+
+*** send email with login link :spam_hazard:
+    user.send_login_link
+
+**** send email
+     Subject: "[rendered.hello] Login link"
+     Body: "Login by: #{host}/hello/#{user_hash}"
+**** save timestamp of sending, do not send too often
+* models
+** user_session
+  - id
+  - user_id         # this way we can have more than one connection for user
+  - session_hash
+  - updated_at
+** user
+  - email
+  - user_hash
+  - created_at
+  - updated_at
+  - last_login
+  - last_email_sent
