@@ -1,2 +1,2 @@
-nakajima-rack-flash --version 0.1.1 --source gems.github.com
+rack-flash --version 0.1.1 --source gemcutter.org
 pony --version 1.0.1
