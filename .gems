@@ -3,3 +3,5 @@ pony --version 1.0.1
 sinatra --version 1.0.0
 haml --version 3.0.4
 i18n
+dm-core
+dm-migrations
